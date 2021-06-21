@@ -5,8 +5,7 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 ENV APP_HOME /educatit
 WORKDIR $APP_HOME
-COPY Gemfile $APP_HOME/Gemfile
-COPY Gemfile.lock $APP_HOME/Gemfile.lock
+COPY Gemfile* $APP_HOME/
 RUN bundle install
 COPY . $APP_HOME
 
