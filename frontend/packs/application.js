@@ -8,4 +8,3 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 ActiveStorage.start()
-console.log('Hola mundo')
