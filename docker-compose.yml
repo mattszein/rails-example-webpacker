@@ -30,3 +30,16 @@ services:
       RAILS_ENV: development
       RAILS_MAX_THREADS: 5
       RAILS_SERVE_STATIC_FILES: 'true'
+  redis:
+    image: redis:5.0-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 6379
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 3s
+      retries: 30
+volumes:
+  redis:

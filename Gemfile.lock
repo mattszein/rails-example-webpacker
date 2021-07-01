@@ -159,6 +159,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stimulus-rails (0.2.4)
+      rails (>= 6.0.0)
     thor (1.1.0)
     turbo-rails (0.5.11)
       rails (>= 6.0.0)
@@ -201,6 +203,7 @@ DEPENDENCIES
   redis (~> 4.0)
   selenium-webdriver
   spring
+  stimulus-rails
   turbo-rails
   tzinfo-data
   web-console (>= 4.1.0)
