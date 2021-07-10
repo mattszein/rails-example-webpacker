@@ -1,0 +1,29 @@
+require:
+  - standard/cop/block_single_line_braces
+
+inherit_mode:
+  merge:
+    - Exclude
+
+inherit_gem:
+  standard: config/base.yml
+
+inherit_from:
+  - .rubocop/rubocop_rspec.yml
+  - .rubocop/rubocop_rails.yml
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'tmp/**/*'
+    - 'Gemfile'
+    - 'vendor/**/*'
+    - 'gemfiles/**/*'
+    - 'node_modules/**/*'
+  DisplayCopNames: true
+
+Standard/BlockSingleLineBraces:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
