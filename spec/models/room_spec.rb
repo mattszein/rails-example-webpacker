@@ -3,14 +3,14 @@
 require "rails_helper"
 
 RSpec.describe Room, type: :model do
-  describe "Associations" do
-    it { should have_many(:messages) }
-    it { should validate_uniqueness_of(:name).case_insensitive }
-  end
-
   subject {
     described_class.new(name: "Room_1")
   }
+
+  describe "Associations" do
+    it { expect(subject).to have_many(:messages) }
+    it { expect(subject).to validate_uniqueness_of(:name).case_insensitive }
+  end
 
   it "is valid with valid attributes" do
     expect(subject).to be_valid

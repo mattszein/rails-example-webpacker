@@ -3,17 +3,18 @@
 require "rails_helper"
 
 RSpec.describe Message, type: :model do
-  describe "Associations" do
-    it { should belong_to(:room) }
-    it { should validate_presence_of(:content) }
-  end
-
   let(:room) {
     Room.create(name: "Room_1")
   }
+
   subject {
     described_class.new(content: "Content_1", room_id: room.id)
   }
+
+  describe "Associations" do
+    it { expect(subject).to belong_to(:room) }
+    it { expect(subject).to validate_presence_of(:content) }
+  end
 
   it "is valid with valid attributes" do
     expect(subject).to be_valid
