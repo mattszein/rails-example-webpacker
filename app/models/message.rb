@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
   belongs_to :room
-  validates_presence_of :content
+  validates :content, presence: true
   broadcasts_to :room
 end

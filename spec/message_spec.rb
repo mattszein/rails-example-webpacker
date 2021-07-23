@@ -1,8 +1,8 @@
 # spec/models/message_spec.rb
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Message, :type => :model do
+RSpec.describe Message, type: :model do
   describe "Associations" do
     it { should belong_to(:room) }
     it { should validate_presence_of(:content) }
@@ -23,10 +23,9 @@ RSpec.describe Message, :type => :model do
     subject.content = nil
     expect(subject).to_not be_valid
   end
-  
+
   it "is not valid without a room" do
     subject.room_id = nil
     expect(subject).to_not be_valid
   end
-
 end

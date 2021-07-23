@@ -1,8 +1,8 @@
 # spec/models/room_spec.rb
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Room, :type => :model do
+RSpec.describe Room, type: :model do
   describe "Associations" do
     it { should have_many(:messages) }
     it { should validate_uniqueness_of(:name).case_insensitive }
@@ -20,6 +20,4 @@ RSpec.describe Room, :type => :model do
     subject.name = nil
     expect(subject).to_not be_valid
   end
-  
-
 end
