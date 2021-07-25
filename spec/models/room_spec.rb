@@ -12,12 +12,14 @@ RSpec.describe Room, type: :model do
     it { expect(subject).to validate_uniqueness_of(:name).case_insensitive }
   end
 
-  it "is valid with valid attributes" do
-    expect(subject).to be_valid
-  end
+  describe "Validations" do
+    it "is valid with valid attributes" do
+      expect(subject).to be_valid
+    end
 
-  it "is not valid without a name" do
-    subject.name = nil
-    expect(subject).to_not be_valid
+    it "is not valid without a name" do
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
   end
 end
