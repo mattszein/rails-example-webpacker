@@ -27,8 +27,8 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to @room, notice: "Room was successfully created." }
-        format.json { render :show, status: :created, location: @room }
+        format.html { redirect_to rooms_url, notice: "Room was successfully created." }
+        format.json { render :index, status: :created, location: @room }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @room.errors, status: :unprocessable_entity }
@@ -55,6 +55,12 @@ class RoomsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to rooms_url, notice: "Room was successfully destroyed." }
       format.json { head :no_content }
+    end
+  rescue ActiveRecord::InvalidForeignKey => e
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.append("toasts", partial: "shared/toast", locals: {message: "Can't delete"})
+      end
     end
   end
 

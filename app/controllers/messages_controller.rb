@@ -8,10 +8,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = @room.messages.create!(message_params)
-
+    @message = @room.messages.new(message_params)
     respond_to do |format|
-      format.html { redirect_to @room }
+      if @message.save
+        format.html { redirect_to @room }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
