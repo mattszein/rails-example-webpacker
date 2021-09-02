@@ -56,7 +56,7 @@ class RoomsController < ApplicationController
       format.html { redirect_to rooms_url, notice: "Room was successfully destroyed." }
       format.json { head :no_content }
     end
-  rescue ActiveRecord::InvalidForeignKey => e
+  rescue ActiveRecord::InvalidForeignKey
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.append("toasts", partial: "shared/toast", locals: {message: "Can't delete"})
