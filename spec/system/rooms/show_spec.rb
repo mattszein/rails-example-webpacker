@@ -11,6 +11,6 @@ describe "Room" do
 
   it "show a room with information and link" do
     expect(page).to have_text room.name
-    expect(page).to have_current_path(edit_room_path(room.id))
+    expect(page).to have_link("", href: edit_room_path(room.id))
   end
 end

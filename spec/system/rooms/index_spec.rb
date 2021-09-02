@@ -10,8 +10,7 @@ describe "Rooms" do
   end
 
   it "show a list of rooms with the name and link to open each one" do
-    click_on room.name
     expect(page).to have_text room.name
-    expect(page).to have_current_path(room_path(room.id))
+    expect(page).to have_current_path(rooms_path)
   end
 end
