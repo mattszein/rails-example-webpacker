@@ -27,3 +27,7 @@ Standard/BlockSingleLineBraces:
 
 Style/FrozenStringLiteralComment:
   Enabled: true
+
+Lint/Debugger: # don't leave binding.pry
+  Enabled: true
+  Exclude: []
